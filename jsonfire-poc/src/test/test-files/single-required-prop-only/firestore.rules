@@ -1,0 +1,13 @@
+rules_version = '2';
+service cloud.firestore {
+    match /databases/{database}/documents {
+        match /testEntity/{testEntity} {
+            allow create, update : if validateTestEntity();
+        }
+
+        function validateTestEntity() {
+            return request.resource.data.keys().hasOnly(['requiredProp']) &&
+                request.resource.data.requiredProp is string;
+        }
+    }
+}

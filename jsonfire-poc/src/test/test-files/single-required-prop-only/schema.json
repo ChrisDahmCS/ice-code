@@ -1,0 +1,12 @@
+{
+    "title": "testEntity",
+    "description": "Single Required Property Only Schema",
+    "type": "object",
+    "properties": {
+        "requiredProp": {
+            "type": "string"
+        }
+    },
+    "additionalProperties": false,
+    "required": ["requiredProp"]
+}
